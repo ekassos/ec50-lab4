@@ -1,0 +1,16 @@
+---
+title: "Lab 4 Report"
+author: "Evangelos Kassos"
+header-includes:
+   - \usepackage{float}
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("lab4_questions_v1.R", local = knitr::knit_global())
+```
+
+___Question 1.___ TODO
+
+___Question 2.___ 
