@@ -11,6 +11,33 @@ knitr::opts_chunk$set(echo = TRUE)
 source("lab4_questions_v1.R", local = knitr::knit_global())
 ```
 
-___Question 1.___ TODO
+___Question 1.___ If teachers were not randomly assigned to classes, we would not be able to make sure that the effect of each teacher's teaching abilities would not affect the results of the study. For example, some teachers who might have more experience teaching small classes, might show better results in small classes compared to larger ones. By randomizing the student and teacher makeup of each class, only the the size of the class, save for other confounding variables, should affect the learning results.
 
-___Question 2.___ 
+___Question 2.___ The average size class size in small kindergarten classes was around 15 students, compared to the average of around 23 students in regular kindergarten classes.
+
+___Question 3. c.___ We notice that there are some small but important differences between the regular and small size histograms. Even though both histograms have similar shapes, the right tail of the small classes is ``fatter", meaning that there are more students that performed well in the four standardized exams compared to the students attending a regular class. Where are those extra students attending a regular class that are missing from the right side of the histogram? On the left side, corresponding to worse exam scores. Interestingly, we see many of these scores being lower but close to the average of the control group, compared to the spread out "extra" students in small classes that performed better than the average of the control group. This practically means that many students that attended regular-sized classes performed slightly worse than the average, while students attending small-sized classes performed better or much better than the control group average. These make more sense when we consider that we used the control group mean for our calculations. 
+
+```{r, echo = F}
+g1
+```
+
+___Question 4. b/c.___ For small classes, teachers have 0.457 fewer years of experience compared to teachers in regular classes (95% CI: 0.13164 - 0.78236). For teachers with a master's degree, they have 2.810 more years of experience compared to teachers that do not have a master's degree (95% CI: 2.5062 - 3.1138). For teachers that are White, they have 0.496 more years of experience compared to teachers that are not White (95% CI: 0.09028 - 0.90172). For teachers that are Black, they have 0.613 fewer years of experience compared to teachers that are not White (95% CI: 0.20336 - 1.02264). 
+```{r, results='asis', echo = FALSE}
+stargazer(teacher_experience_small, header=FALSE, type='latex', table.placement = "H")
+stargazer(teacher_experience_masters, header=FALSE, type='latex', table.placement = "H")
+stargazer(teacher_experience_white, header=FALSE, type='latex', table.placement = "H")
+stargazer(teacher_experience_black, header=FALSE, type='latex', table.placement = "H")
+```
+
+___Question 4. d.___ Because the 95% CI for the difference in experience between teachers in small and regular classes does not contain zero, we can reject the hypothesis that the real difference is zero at the $a=0.05$ level (statistically significant at the 5% level. Practically, the 95% CI for the difference in experience between teachers in small and regular classes shows that the teachers in small classes have 0.13164 - 0.78236 fewer years of experience compared to teachers in regular classes. This is less than a year of teaching experience, which might practically not be that significant. Therefore, we can conclude that the random assignment was successful in balancing teacher characteristics.
+
+___Question 5. b.___ For small classes, the average of the four standardized exam scores was 0.169 points higher than the students in regular classes (95% CI: 0.12392 - 0.21408).
+```{r, results='asis', echo = FALSE}
+stargazer(teacher_experience_small_factor, header=FALSE, omit="factor", type='latex', table.placement = "H")
+```
+
+___Question 5. c.___
+
+```{r, echo = F}
+g2
+```
